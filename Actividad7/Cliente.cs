@@ -23,13 +23,15 @@ namespace Actividad7
         public void Ingresar(Double cantidad){
             if (cantidad > 0)
                 Cantidad += cantidad;
+            else
+                Console.WriteLine("Cantidad erronea");
         }
 
         public void Extraer(Double cantidad){
             if (cantidad < Cantidad && cantidad > 0)
                 Cantidad -= cantidad;
             else
-                Console.WriteLine("Saldo insuciente");
+                Console.WriteLine("Saldo insuciente o erroneo");
         }
 
         public void ConsultarSaldo(){

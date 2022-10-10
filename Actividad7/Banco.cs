@@ -13,23 +13,33 @@ namespace Actividad7
         new Cliente("3","Pablo",1000000)};
 
         public void Operar() {
-            String dniCliente,operacion="";
+            String dniCliente;
             Cliente cliente;
+            Int16 operacion =0;
             Console.WriteLine("Introduzca un cliente sobre el que operar");
             dniCliente = Console.ReadLine();
 
             cliente=SeleccionCliente(dniCliente);
             if (cliente == null)
             {
-                Console.WriteLine("cliente nmo valido");
+                Console.WriteLine("cliente no valido");
             }
             else {
                 do
                 {
                     Console.WriteLine("pulse 1 para ingresar, 2 para retirar y 3 para salir");
-                    operacion=Console.ReadLine();
+                    operacion = Int16.Parse(Console.ReadLine());
+                    if (operacion == 1) {
+                        Console.WriteLine("Cantidad a ingresar: ");
+                        cliente.Ingresar(Double.Parse(Console.ReadLine()));
+                    }
+                    if (operacion == 2)
+                    {
+                        Console.WriteLine("Cantidad a retirar: ");
+                        cliente.Extraer(Double.Parse(Console.ReadLine()));
+                    }
 
-                } while (operacion!="3");
+                } while (operacion!=3);
                 
             }
         }
@@ -39,6 +49,14 @@ namespace Actividad7
                 if (cliente.Dni.Equals(dni)) return cliente;
             }
             return null;
+        }
+
+        public void FinaldelDia() {
+            Double saldoTotal = 0;
+            foreach (Cliente cliente in clientes) {
+                saldoTotal += cliente.Cantidad;
+            }
+            Console.WriteLine(saldoTotal);
         }
     }
 }

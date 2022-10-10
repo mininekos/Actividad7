@@ -6,7 +6,11 @@ Triangulo triangulo = new Triangulo(10,12);
 Console.WriteLine(triangulo.Perimetro());
 Console.WriteLine(triangulo.Area());*/
 
+/*
 Juego juego = new Juego();
-
 juego.Jugar();
+*/
 
+Banco banco = new Banco();
+//banco.Operar();
+banco.FinaldelDia();
