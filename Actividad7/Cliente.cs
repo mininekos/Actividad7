@@ -26,7 +26,7 @@ namespace Actividad7
         }
 
         public void Extraer(Double cantidad){
-            if (cantidad < Cantidad)
+            if (cantidad < Cantidad && cantidad > 0)
                 Cantidad -= cantidad;
             else
                 Console.WriteLine("Saldo insuciente");

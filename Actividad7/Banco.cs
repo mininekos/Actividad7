@@ -13,7 +13,32 @@ namespace Actividad7
         new Cliente("3","Pablo",1000000)};
 
         public void Operar() {
-            
+            String dniCliente,operacion="";
+            Cliente cliente;
+            Console.WriteLine("Introduzca un cliente sobre el que operar");
+            dniCliente = Console.ReadLine();
+
+            cliente=SeleccionCliente(dniCliente);
+            if (cliente == null)
+            {
+                Console.WriteLine("cliente nmo valido");
+            }
+            else {
+                do
+                {
+                    Console.WriteLine("pulse 1 para ingresar, 2 para retirar y 3 para salir");
+                    operacion=Console.ReadLine();
+
+                } while (operacion!="3");
+                
+            }
+        }
+
+        Cliente SeleccionCliente(String dni) {
+            foreach (Cliente cliente in clientes) {
+                if (cliente.Dni.Equals(dni)) return cliente;
+            }
+            return null;
         }
     }
 }
